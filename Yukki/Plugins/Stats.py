@@ -63,7 +63,7 @@ async def gstats(_, message):
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     smex = f"""
-[•]<u>**General Stats**</u>
+[•]<u>**General**</u>
 
 Ping: `⚡{resp} ms`
 {uptime}
@@ -104,7 +104,7 @@ async def stats_markup(_, CallbackQuery):
         bot_uptime = int(time.time() - boottime)
         uptime = f"{get_readable_time((bot_uptime))}"
         smex = f"""
-[•]<u>**System Stats**</u>
+[•]<u>**System**</u>
 
 **{MUSIC_BOT_NAME} Uptime:** {uptime}
 **System Proc:** Online
@@ -114,7 +114,7 @@ async def stats_markup(_, CallbackQuery):
 **Python Ver:** {pyver.split()[0]}
 **Pyrogram Ver:** {pyrover}
 
-[•]<u>**CPU Stats**</u>
+[•]<u>**CPU**</u>
 
 **Physical Cores:** {p_core}
 **Total Cores:** {t_core}
@@ -135,7 +135,7 @@ async def stats_markup(_, CallbackQuery):
         free = hdd.free / (1024.0 ** 3)
         free = str(free)
         smex = f"""
-[•]<u>**Storage Stats**</u>
+[•]<u>**Storage**</u>
 
 **Storage Avail:** {total[:4]} GiB
 **Storage Used:** {used[:4]} GiB
@@ -158,7 +158,7 @@ async def stats_markup(_, CallbackQuery):
             except Exception:
                 continue
         smex = f"""
-[•]<u>**Bot Stats**</u>
+[•]<u>**Bot**</u>
 
 **Modules Loaded:** {modules_loaded}
 **GBanned Users:** {blocked}
@@ -197,7 +197,7 @@ async def stats_markup(_, CallbackQuery):
         mongouptime = str(mongouptime)
         provider = status["repl"]["tags"]["provider"]
         smex = f"""
-[•]<u>**MongoDB Stats**</u>
+[•]<u>**MongoDb**</u>
 
 **Mongo Uptime:** {mongouptime[:4]} Days
 **Version:** {mver}
@@ -218,7 +218,7 @@ async def stats_markup(_, CallbackQuery):
         end = datetime.now()
         resp = (end - start).microseconds / 1000
         smex = f"""
-[•]<u>General Stats</u>
+[•]<u>General</u>
 
 **Ping:** `⚡{resp} ms`
 {uptime}"""
