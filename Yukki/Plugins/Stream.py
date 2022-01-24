@@ -135,6 +135,17 @@ async def Live_Videos_Stream(_, CallbackQuery):
         return await CallbackQuery.answer(
             "This is not for you! Search You Own Song.", show_alert=True
         )
+    await CallbackQuery.message.delete()
+    title, duration_min, duration_sec, thumbnail = get_yt_info_id(videoid)
+    await CallbackQuery.answer()
+    theme = await check_theme(chat_id)
+    chat_title = await specialfont_to_normal(chat_title)
+    thumb = await gen_thumb(thumbnail, title, user_id, theme, chat_title)
+    nrs, ytlink = await get_m3u8(videoid)
+    if nrs == 0:
+        return await CallbackQuery.message.reply_text(
+            "Video Formats not Found.."
+        )
     
     await start_live_stream(
         CallbackQuery,
@@ -172,6 +183,15 @@ async def Videos_Stream(_, CallbackQuery):
     if duration_sec > DURATION_LIMIT:
         return await CallbackQuery.message.reply_text(
             f"**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
+        )
+    await CallbackQuery.answer()
+    theme = await check_theme(chat_id)
+    chat_title = await specialfont_to_normal(chat_title)
+    thumb = await gen_thumb(thumbnail, title, user_id, theme, chat_title)
+    nrs, ytlink = await get_m3u8(videoid)
+    if nrs == 0:
+        return await CallbackQuery.message.reply_text(
+            "Video Formats not Found.."
         )
     
     await start_video_stream(
