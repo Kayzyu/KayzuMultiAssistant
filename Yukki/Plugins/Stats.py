@@ -80,7 +80,7 @@ Ping: `⚡{resp} ms`
 async def stats_markup(_, CallbackQuery):
     command = CallbackQuery.matches[0].group(1)
     if command == "sys_stats":
-        await CallbackQuery.answer("Getting System Stats...", show_alert=True)
+        await CallbackQuery.answer()
         sc = platform.system()
         arch = platform.machine()
         p_core = psutil.cpu_count(logical=False)
@@ -124,9 +124,7 @@ async def stats_markup(_, CallbackQuery):
 """
         await CallbackQuery.edit_message_text(smex, reply_markup=stats2)
     if command == "sto_stats":
-        await CallbackQuery.answer(
-            "Getting Storage Stats...", show_alert=True
-        )
+        await CallbackQuery.answer()
         hdd = psutil.disk_usage("/")
         total = hdd.total / (1024.0 ** 3)
         total = str(total)
@@ -142,7 +140,7 @@ async def stats_markup(_, CallbackQuery):
 **Storage Left:** {free[:4]} GiB"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats3)
     if command == "bot_stats":
-        await CallbackQuery.answer("Getting Bot Stats...", show_alert=True)
+        await CallbackQuery.answer()
         served_chats = []
         chats = await get_served_chats()
         for chat in chats:
@@ -166,9 +164,8 @@ async def stats_markup(_, CallbackQuery):
 **Served Chats:** {len(served_chats)}"""
         await CallbackQuery.edit_message_text(smex, reply_markup=stats4)
     if command == "mongo_stats":
-        await CallbackQuery.answer(
-            "Getting MongoDB Stats...", show_alert=True
-        )
+        await CallbackQuery.answer()
+            
         try:
             pymongo = MongoClient(MONGO_DB_URI)
         except Exception as e:
@@ -212,9 +209,7 @@ async def stats_markup(_, CallbackQuery):
     if command == "gen_stats":
         start = datetime.now()
         uptime = await bot_sys_stats()
-        await CallbackQuery.answer(
-            "Getting General Stats...", show_alert=True
-        )
+        await CallbackQuery.answer()
         end = datetime.now()
         resp = (end - start).microseconds / 1000
         smex = f"""
@@ -226,9 +221,8 @@ async def stats_markup(_, CallbackQuery):
     if command == "wait_stats":
         await CallbackQuery.answer()
     if command == "assis_stats":
-        await CallbackQuery.answer(
-            "Getting Assistant Stats...", show_alert=True
-        )
+        await CallbackQuery.answer()
+            
         await CallbackQuery.edit_message_text(
             "Getting Assistant Stats.. Please Wait...", reply_markup=stats7
         )
