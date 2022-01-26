@@ -271,4 +271,3 @@ async def stats_markup(_, CallbackQuery):
 **Users:** {privates_ub2}"""      
 
 await CallbackQuery.edit_message_text(msg, reply_markup=stats2)
-**Users:** {privates_ub2}"""
