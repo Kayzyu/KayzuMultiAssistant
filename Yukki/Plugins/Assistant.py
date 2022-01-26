@@ -76,7 +76,7 @@ async def assis_change(_, message: Message):
     )
 
 
-ass_num_list2 = ["1", "2", "3", "4", "5", "Random"]
+ass_num_list2 = ["1", "2", "Random"]
 
 
 @app.on_message(filters.command("setassistant") & filters.user(SUDOERS))
