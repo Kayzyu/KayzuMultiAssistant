@@ -14,7 +14,7 @@ from config import (LOG_GROUP_ID, LOG_SESSION, STRING1, STRING2)
 from Yukki import (ASS_CLI_1, ASS_CLI_2, ASSID1, ASSID2, ASSNAME1, ASSNAME2,
                    BOT_ID, BOT_NAME, LOG_CLIENT, OWNER_ID, app)
 from Yukki.Core.Clients.cli import LOG_CLIENT
-from Yukki.Core.PyTgCalls.Yukki import (pytgcalls1, pytgcalls2, pytgcalls3)
+from Yukki.Core.PyTgCalls.Yukki import (pytgcalls1, pytgcalls2)
 from Yukki.Database import (get_active_chats, get_active_video_chats,
                             get_sudoers, is_on_off, remove_active_chat,
                             remove_active_video_chat)
