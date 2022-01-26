@@ -14,10 +14,8 @@ from rich.table import Table
 from config import (ASSISTANT_PREFIX, DURATION_LIMIT_MIN, LOG_GROUP_ID,
                     LOG_SESSION)
 from config import MONGO_DB_URI as mango
-from config import (MUSIC_BOT_NAME, OWNER_ID, STRING1, STRING2, STRING3,
-                    STRING4, STRING5, SUDO_USERS, get_queue)
-from Yukki.Core.Clients.cli import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4,
-                                    ASS_CLI_5, LOG_CLIENT, app)
+from config import (MUSIC_BOT_NAME, OWNER_ID, STRING1, STRING2, SUDO_USERS, get_queue)
+from Yukki.Core.Clients.cli import (ASS_CLI_1, ASS_CLI_2, LOG_CLIENT, app)
 from Yukki.Utilities.changers import time_to_seconds
 from Yukki.Utilities.tasks import install_requirements
 
@@ -40,9 +38,6 @@ boottime = time.time()
 app = app
 ASS_CLI_1 = ASS_CLI_1
 ASS_CLI_2 = ASS_CLI_2
-ASS_CLI_3 = ASS_CLI_3
-ASS_CLI_4 = ASS_CLI_4
-ASS_CLI_5 = ASS_CLI_5
 LOG_CLIENT = LOG_CLIENT
 aiohttpsession = ClientSession()
 
@@ -69,18 +64,6 @@ ASSID2 = 0
 ASSNAME2 = ""
 ASSUSERNAME2 = ""
 ASSMENTION2 = ""
-ASSID3 = 0
-ASSNAME3 = ""
-ASSUSERNAME3 = ""
-ASSMENTION3 = ""
-ASSID4 = 0
-ASSNAME4 = ""
-ASSUSERNAME4 = ""
-ASSMENTION4 = ""
-ASSID5 = 0
-ASSNAME5 = ""
-ASSUSERNAME5 = ""
-ASSMENTION5 = ""
 random_assistant = []
 
 
@@ -89,9 +72,6 @@ async def initiate_bot():
     global BOT_ID, BOT_NAME, BOT_USERNAME
     global ASSID1, ASSNAME1, ASSMENTION1, ASSUSERNAME1
     global ASSID2, ASSNAME2, ASSMENTION2, ASSUSERNAME2
-    global ASSID3, ASSNAME3, ASSMENTION3, ASSUSERNAME3
-    global ASSID4, ASSNAME4, ASSMENTION4, ASSUSERNAME4
-    global ASSID5, ASSNAME5, ASSMENTION5, ASSUSERNAME5
     global Heroku_cli, Heroku_app
     os.system("clear")
     header = Table(show_header=True, header_style="bold yellow")
@@ -114,19 +94,6 @@ async def initiate_bot():
             await ASS_CLI_2.start()
             random_assistant.append(2)
             console.print("├ [yellow]Booted Assistant Client 2")
-        if STRING3 != "None":
-            await ASS_CLI_3.start()
-            random_assistant.append(3)
-            console.print("├ [yellow]Booted Assistant Client 3")
-        if STRING4 != "None":
-            await ASS_CLI_4.start()
-            random_assistant.append(4)
-            console.print("├ [yellow]Booted Assistant Client 4")
-        if STRING5 != "None":
-            await ASS_CLI_5.start()
-            random_assistant.append(5)
-            console.print("├ [yellow]Booted Assistant Client 5")
-        console.print("└ [green]Assistant Clients Booted Successfully!")
         if LOG_SESSION != "None":
             console.print("\n┌ [red]Booting Logger Client")
             await LOG_CLIENT.start()
@@ -169,40 +136,6 @@ async def initiate_bot():
             )
             ASSUSERNAME2 = getme2.username
             ASSMENTION2 = getme2.mention
-        if STRING3 != "None":
-            getme3 = await ASS_CLI_3.get_me()
-            ASSID3 = getme3.id
-            ASSIDS.append(ASSID3)
-            ASSNAME3 = (
-                f"{getme3.first_name} {getme3.last_name}"
-                if getme3.last_name
-                else getme3.first_name
-            )
-            ASSUSERNAME3 = getme3.username
-            ASSMENTION3 = getme3.mention
-        if STRING4 != "None":
-            getme4 = await ASS_CLI_4.get_me()
-            ASSID4 = getme4.id
-            ASSIDS.append(ASSID4)
-            ASSNAME4 = (
-                f"{getme4.first_name} {getme4.last_name}"
-                if getme4.last_name
-                else getme4.first_name
-            )
-            ASSUSERNAME4 = getme4.username
-            ASSMENTION4 = getme4.mention
-        if STRING5 != "None":
-            getme5 = await ASS_CLI_5.get_me()
-            ASSID5 = getme5.id
-            ASSIDS.append(ASSID5)
-            ASSNAME5 = (
-                f"{getme5.first_name} {getme5.last_name}"
-                if getme5.last_name
-                else getme5.first_name
-            )
-            ASSUSERNAME5 = getme5.username
-            ASSMENTION5 = getme5.mention
-        console.print("└ [green]Loaded Clients Information!")
         console.print("\n┌ [red]Loading Sudo Users...")
         sudoersdb = db.sudoers
         sudoers = await sudoersdb.find_one({"sudo": "sudo"})
