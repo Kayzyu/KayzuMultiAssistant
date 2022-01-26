@@ -136,6 +136,7 @@ async def initiate_bot():
             )
             ASSUSERNAME2 = getme2.username
             ASSMENTION2 = getme2.mention
+        console.print("└ [green]Loaded Clients Information!")
         console.print("\n┌ [red]Loading Sudo Users...")
         sudoersdb = db.sudoers
         sudoers = await sudoersdb.find_one({"sudo": "sudo"})
