@@ -76,7 +76,7 @@ async def assis_change(_, message: Message):
     )
 
 
-ass_num_list2 = ["1", "2", "Random"]
+ass_num_list2 = ["1", "2", "3", "4", "5", "Random"]
 
 
 @app.on_message(filters.command("setassistant") & filters.user(SUDOERS))
@@ -94,7 +94,7 @@ async def assis_change(_, message: Message):
     _assistant = await get_assistant(message.chat.id, "assistant")
     if not _assistant:
         await message.reply_text(
-            f"**__Kay Music Bot Assistant Alloted__**\n\nAssistant No. **{ran_ass}**"
+            f"**__Yukki Music Bot Assistant Alloted__**\n\nAssistant No. **{ran_ass}**"
         )
         assis = {
             "saveassistant": ran_ass,
