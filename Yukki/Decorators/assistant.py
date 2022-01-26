@@ -9,7 +9,7 @@ from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
 from Yukki import BOT_ID, MUSIC_BOT_NAME, app, random_assistant
 from Yukki.Database import get_assistant, save_assistant
 from Yukki.Utilities.assistant import get_assistant_details
-from Yukki.Plugins import (save_assistant, get_assistant_details, random_assistant)
+from Yukki.Plugins import save_assistant, get_assistant_details, random_assistant
 
 
 @app.on_callback_query(filters.regex("unban_assistant"))
