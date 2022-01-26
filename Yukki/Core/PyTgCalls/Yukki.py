@@ -472,7 +472,7 @@ async def stream_end_handler(_, update: Update):
         pass
     else:
         return
-    await playout_end(pytgcalls2, update.chat_id
+    await playout_end(pytgcalls2, update.chat_id)
 
 
 ### Kicked Handlers
