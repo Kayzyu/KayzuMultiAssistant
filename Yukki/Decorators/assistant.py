@@ -9,7 +9,7 @@ from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
 from Yukki import BOT_ID, MUSIC_BOT_NAME, app, random_assistant
 from Yukki.Database import get_assistant, save_assistant
 from Yukki.Utilities.assistant import get_assistant_details
-from Yukki import ASS_ID, ASS_NAME, ASS_USERNAME, ASS_ACC
+from Yukki import ASS_ID1, ASS_NAME1, ASS_USERNAME1, ASS_ACC1
 
 
 @app.on_callback_query(filters.regex("unban_assistant"))
@@ -55,7 +55,7 @@ def AssistantAdd(mystic):
                 "saveassistant": ran_ass,
             }
             await save_assistant(message.chat.id, "assistant", assis)
-        ASS_ID, ASS_NAME, ASS_USERNAME, ASS_ACC = await get_assistant_details(
+        ASS_ID1, ASS_NAME1, ASS_USERNAME1, ASS_ACC1 = await get_assistant_details(
             ran_ass
         )
         try:
