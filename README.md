@@ -1,32 +1,17 @@
-<p align="center"><img src="https://github.com/notreallyshikhar/YukkiMusicBot/blob/master/Utils/icon.gif" alt="ICON" width="250" height="250"/></p>
+<p align="center"><img src="https://telegra.ph/file/8def91bd1d2b6e2921a27.jpg" alt="ICON" width="250" height="250"/></p>
 
 <h4 align="center">
     A Telegram Music+video Bot written in Python using Pyrogram and Py-Tgcalls 
-</h4>
-<p align="center">
-    <a href="https://t.me/YukkiRobot"> Ready-To-Use Bot </a> •
-    <a href="https://notreallyshikhar.gitbook.io/yukkimusicbot/about/getting-started"> Documentation </a> •
-    <a href="https://t.me/OfficialYukki"> Support Channel </a> •
-    <a href="https://t.me/YukkiSupport"> Support Chat </a> 
-</p>
+
     
-# Yukki Music Bot
+# Kay Music
 A Powerful Telegram Music+Video Bot by which you can stream songs, videos and even live streams in your group calls via various sources. It comes with  user friendly and easy to use yet elegant features.
 
 ## Deployment
 Read [Docs](https://notreallyshikhar.gitbook.io/yukkimusicbot/deployment/requirements) for Detailed Description and Setup Guide on deploying Bot.
 
 > Click on buttons to expand!
-<details>
-<summary><b>🔗 Requirements</b></summary>
-<br>
-    
-- [Python3.9](https://www.python.org/downloads/release/python-390/)
-- [Telegram API Key](https://docs.pyrogram.org/intro/setup#api-keys)
-- [Telegram Bot Token](https://t.me/botfather)
-- [MongoDB URI](https://telegra.ph/How-To-get-Mongodb-URI-04-06)
-- [Pyrogram String Session](https://notreallyshikhar.gitbook.io/yukkimusicbot/deployment/string-session)
-    
+
 </details>
 
 <details>
