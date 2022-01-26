@@ -16,10 +16,10 @@ from pyrogram import Client
 from pyrogram import __version__ as pyrover
 from pyrogram import filters
 from pyrogram.types import Message
-from config import (MONGO_DB_URI, MUSIC_BOT_NAME, STRING1, STRING2, STRING4, STRING5)
+from config import (MONGO_DB_URI, MUSIC_BOT_NAME, STRING1, STRING2)
 from Yukki import (ASS_CLI_1, ASS_CLI_2, BOT_ID, MUSIC_BOT_NAME, SUDOERS, app, boottime)
 from Yukki.Database import get_gbans_count, get_served_chats, get_sudoers
-from Yukki.Inline import stats1, stats2
+from Yukki.Inline import stats1, stats2, stats3, stats4, stats5, stats6, stats7
 from Yukki.Plugins import ALL_MODULES
 from Yukki.Utilities.ping import get_readable_time
 
@@ -269,4 +269,4 @@ async def stats_markup(_, CallbackQuery):
 **Channels:** {channels_ub2}
 **Bots:** {bots_ub2}
 **Users:** {privates_ub2}"""      
-        await CallbackQuery.edit_message_text(msg, reply_markup=stats2)
+        await CallbackQuery.edit_message_text(msg, reply_markup=stats6)
