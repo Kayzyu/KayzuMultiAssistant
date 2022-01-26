@@ -54,9 +54,13 @@ def AssistantAdd(mystic):
                 "saveassistant": ran_ass,
             }
             await save_assistant(message.chat.id, "assistant", assis)
-        ASS_ID, ASS_NAME, ASS_USERNAME, ASS_ACC = await get_assistant_details(
-            ran_ass
-        )
+        else:
+            ran_ass = _assistant["saveassistant"]
+        if ran_ass not in random_assistant:
+            ran_ass = random.choice(random_assistant)
+            assis = {
+                "saveassistant": ran_ass,
+            }
         try:
             b = await app.get_chat_member(message.chat.id, ASS_ID)
             key = InlineKeyboardMarkup(
