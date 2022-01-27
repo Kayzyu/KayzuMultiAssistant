@@ -53,9 +53,10 @@ def AssistantAdd(mystic):
             assis = {
                 "saveassistant": ran_ass,
             }
-            await save_assistant(message.chat.id, "assistant", assis)
-        ASS_ID, ASS_NAME, ASS_USERNAME, ASS_ACC = await get_assistant_details(
-            ran_ass
+        else:
+            ran_ass = _assistant["saveassistant"]
+    ASS_ID, ASS_NAME, ASS_USERNAME, ASS_ACC = await get_assistant_details(
+        ran_ass
         )
         try:
             b = await app.get_chat_member(message.chat.id, ASS_ID)
