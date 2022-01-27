@@ -11,8 +11,8 @@ from rich.table import Table
 from youtubesearchpython import VideosSearch
 
 from config import (LOG_GROUP_ID, LOG_SESSION, STRING1, STRING2)
-from Yukki import (ASS_CLI_1, ASS_CLI_2, ASSID1, ASSID2, ASSNAME1, ASSNAME2,
-                   BOT_ID, BOT_NAME, LOG_CLIENT, OWNER_ID, app)
+from Yukki import (ASS_CLI_1, ASS_CLI_2, ASSID1, ASSID2, ASSNAME1, ASSNAME2, 
+                   BOT_ID, BOT_NAME, LOG_CLIENT,OWNER_ID, app)
 from Yukki.Core.Clients.cli import LOG_CLIENT
 from Yukki.Core.PyTgCalls.Yukki import (pytgcalls1, pytgcalls2)
 from Yukki.Database import (get_active_chats, get_active_video_chats,
@@ -64,8 +64,8 @@ async def initiate_bot():
             ):
                 imported_module.__MODULE__ = imported_module.__MODULE__
                 if (
-                    hasattr(imported_module, "__MHELP__")
-                    and imported_module.__MHELP__
+                    hasattr(imported_module, "__HELP__")
+                    and imported_module.__HELP__
                 ):
                     HELPABLE[
                         imported_module.__MODULE__.lower()
@@ -111,8 +111,8 @@ async def initiate_bot():
             console.print(f"\n[red]Stopping Bot")
             return
         try:
-            await ASS_CLI_1.join_chat("kayzuchannel")
-            await ASS_CLI_1.join_chat("KayzuSupport")
+            await ASS_CLI_1.join_chat("OfficialYukki")
+            await ASS_CLI_1.join_chat("YukkiSupport")
         except:
             pass
         console.print(f"├[red] Assistant 1 Started as {ASSNAME1}!")
@@ -130,13 +130,12 @@ async def initiate_bot():
             console.print(f"\n[red]Stopping Bot")
             return
         try:
-            await ASS_CLI_2.join_chat("kayzuchannel")
-            await ASS_CLI_2.join_chat("KayzuSupport")
+            await ASS_CLI_2.join_chat("OfficialYukki")
+            await ASS_CLI_2.join_chat("YukkiSupport")
         except:
             pass
         console.print(f"├[red] Assistant 2 Started as {ASSNAME2}!")
         console.print(f"├[green] ID :- {ASSID2}!")
-    
     if LOG_SESSION != "None":
         try:
             await LOG_CLIENT.send_message(
@@ -150,8 +149,8 @@ async def initiate_bot():
             console.print(f"\n[red]Stopping Bot")
             return
         try:
-            await LOG_CLIENT.join_chat("kayzuchannel")
-            await LOG_CLIENT.join_chat("KayzuSupport")
+            await LOG_CLIENT.join_chat("OfficialYukki")
+            await LOG_CLIENT.join_chat("YukkiSupport")
         except:
             pass
     console.print(f"└[red] Yukki Music Bot Boot Completed.")
@@ -170,19 +169,19 @@ A Telegram Music+Video Streaming bot with some useful features.
 All commands can be used with: / """
 
 
-@app.on_message(filters.command("mhelp") & filters.private)
+@app.on_message(filters.command("help") & filters.private)
 async def help_command(_, message):
     text, keyboard = await help_parser(message.from_user.mention)
     await app.send_message(message.chat.id, text, reply_markup=keyboard)
 
 
-@app.on_message(filters.command("mstart") & filters.private)
+@app.on_message(filters.command("start") & filters.private)
 async def start_command(_, message):
     if len(message.text.split()) > 1:
         name = (message.text.split(None, 1)[1]).lower()
         if name[0] == "s":
             sudoers = await get_sudoers()
-            text = "🔥<u> **Owners:**</u>\n"
+            text = "⭐️<u> **Owners:**</u>\n"
             sex = 0
             for x in OWNER_ID:
                 try:
@@ -206,7 +205,7 @@ async def start_command(_, message):
                         )
                         if smex == 0:
                             smex += 1
-                            text += "\n🔥<u> **Sudo Users:**</u>\n"
+                            text += "\n⭐️<u> **Sudo Users:**</u>\n"
                         sex += 1
                         text += f"{sex}➤ {user}\n"
                     except Exception:
@@ -223,7 +222,7 @@ async def start_command(_, message):
                     LOG_GROUP_ID,
                     f"{message.from_user.mention} has just started bot to check <code>SUDOLIST</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
                 )
-        if name == "mhelp":
+        if name == "help":
             text, keyboard = await help_parser(message.from_user.mention)
             await message.delete()
             return await app.send_text(
