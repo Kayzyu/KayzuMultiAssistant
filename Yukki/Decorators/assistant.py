@@ -58,7 +58,8 @@ def AssistantAdd(mystic):
     ASS_ID, ASS_NAME, ASS_USERNAME, ASS_ACC = await get_assistant_details(
         ran_ass
         )
-        try:
+        else:
+            try:
             b = await app.get_chat_member(message.chat.id, ASS_ID)
             key = InlineKeyboardMarkup(
                 [
