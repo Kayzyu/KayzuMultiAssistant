@@ -55,17 +55,6 @@ def AssistantAdd(mystic):
             }
             await save_assistant(message.chat.id, "assistant", assis)
         try:
-            b = await app.get_chat_member(message.chat.id, ASS_ID)
-            key = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            text="🗑 Unban Assistant",
-                            callback_data=f"unban_assistant a|{ASS_ID}",
-                        )
-                    ],
-                ]
-            )
             if b.status == "kicked":
                 return await message.reply_text(
                     f"Assistant Account[{ASS_ID}] is banned.\nUnban it first to use Music Bot\n\nUsername: @{ASS_USERNAME}",
