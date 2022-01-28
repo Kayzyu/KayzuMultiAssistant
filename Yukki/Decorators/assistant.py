@@ -55,16 +55,7 @@ def AssistantAdd(mystic):
             }
             await save_assistant(message.chat.id, "assistant", assis)
         try:
-            if b.status == "kicked":
-                return await message.reply_text(
-                    f"Assistant Account[{ASS_ID}] is banned.\nUnban it first to use Music Bot\n\nUsername: @{ASS_USERNAME}",
-                    reply_markup=key,
-                )
-            if b.status == "banned":
-                return await message.reply_text(
-                    f"Assistant Account[{ASS_ID}] is banned.\nUnban it first to use Music Bot\n\nUsername: @{ASS_USERNAME}",
-                    reply_markup=key,
-                )
+       
         except UserNotParticipant:
             if message.chat.username:
                 try:
