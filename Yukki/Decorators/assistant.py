@@ -55,8 +55,8 @@ def AssistantAdd(mystic):
             }
             await save_assistant(message.chat.id, "assistant", assis)
        
-        except UserNotParticipant:
-            if message.chat.username:
+        
+        if message.chat.username:
                 try:
                     await ASS_ACC.join_chat(message.chat.username)
                 except UserAlreadyParticipant:
